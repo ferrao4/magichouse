@@ -12,7 +12,7 @@ import { AuthModule } from './modules/auth/auth.module';
       isGlobal: true,
       envFilePath: '.env',
     }),
-    // TypeOrmModule.forRoot(typeOrmConfig), // TODO: Enable after database setup
+    TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule,
   ],
   controllers: [AppController],

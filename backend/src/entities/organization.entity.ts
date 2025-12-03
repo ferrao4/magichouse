@@ -13,8 +13,8 @@ export class Organization {
   @Column({ unique: true })
   subdomain: string;
 
-  @Column({ type: 'jsonb', nullable: true })
-  settings: Record<string, any>;
+  @Column({ type: 'text', nullable: true })
+  settings: string; // JSON string for SQLite compatibility
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

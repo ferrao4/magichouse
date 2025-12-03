@@ -25,8 +25,7 @@ export class Post {
   content: string;
 
   @Column({
-    type: 'enum',
-    enum: PostVisibility,
+    type: 'text',
     default: PostVisibility.COMPANY,
   })
   visibility: PostVisibility;

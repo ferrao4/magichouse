@@ -51,15 +51,13 @@ export class User {
   profilePictureUrl: string;
 
   @Column({
-    type: 'enum',
-    enum: UserRole,
+    type: 'text',
     default: UserRole.EMPLOYEE,
   })
   role: UserRole;
 
   @Column({
-    type: 'enum',
-    enum: UserStatus,
+    type: 'text',
     default: UserStatus.OFFLINE,
   })
   status: UserStatus;
