@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { authApi } from '../services/api';
 
 interface User {
@@ -83,17 +83,30 @@ export default function Dashboard() {
       )}
 
       <div style={{ marginTop: '30px', padding: '20px', border: '1px solid #ddd', borderRadius: '8px' }}>
-        <h3>🎉 Authentication System Test Successful!</h3>
-        <p>You have successfully:</p>
-        <ul>
-          <li>✅ Registered a new account</li>
-          <li>✅ Logged in with JWT authentication</li>
-          <li>✅ Accessed a protected route</li>
-          <li>✅ Retrieved your user profile</li>
+        <h3>🎉 Welcome to Magic House!</h3>
+        <p>Explore the features:</p>
+        <div style={{ marginTop: '20px' }}>
+          <Link
+            to="/feed"
+            style={{
+              display: 'inline-block',
+              padding: '12px 24px',
+              backgroundColor: '#1976d2',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '4px',
+              fontWeight: '500'
+            }}
+          >
+            📱 Go to Feed
+          </Link>
+        </div>
+        <ul style={{ marginTop: '20px' }}>
+          <li>✅ Create posts and share updates</li>
+          <li>✅ Comment on posts</li>
+          <li>✅ Like posts</li>
+          <li>✅ View company feed</li>
         </ul>
-        <p style={{ marginTop: '20px', color: '#666' }}>
-          The backend API is running on <code>http://localhost:3000</code> and all authentication endpoints are working correctly!
-        </p>
       </div>
     </div>
   );

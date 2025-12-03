@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Feed from './pages/Feed';
 import './App.css';
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         <Route
           path="/dashboard"
           element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/feed"
+          element={isAuthenticated ? <Feed /> : <Navigate to="/login" />}
         />
       </Routes>
     </BrowserRouter>
