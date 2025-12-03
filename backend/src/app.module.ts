@@ -5,6 +5,7 @@ import { typeOrmConfig } from './config/typeorm.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
+import { PostsModule } from './modules/posts/posts.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { AuthModule } from './modules/auth/auth.module';
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
     AuthModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
