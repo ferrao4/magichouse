@@ -11,7 +11,7 @@ import { AppService } from './app.service';
       isGlobal: true,
       envFilePath: '.env',
     }),
-    TypeOrmModule.forRoot(typeOrmConfig),
+    // TypeOrmModule.forRoot(typeOrmConfig), // TODO: Enable after database setup
   ],
   controllers: [AppController],
   providers: [AppService],
