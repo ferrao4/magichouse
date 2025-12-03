@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AppService } from './app.service';
       envFilePath: '.env',
     }),
     // TypeOrmModule.forRoot(typeOrmConfig), // TODO: Enable after database setup
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
