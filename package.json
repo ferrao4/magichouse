@@ -1,0 +1,28 @@
+{
+  "name": "magichouse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Magic House - Internal Communication Platform",
+  "workspaces": [
+    "backend",
+    "web",
+    "shared"
+  ],
+  "scripts": {
+    "backend:dev": "npm run start:dev --workspace=backend",
+    "backend:build": "npm run build --workspace=backend",
+    "backend:start": "npm run start:prod --workspace=backend",
+    "web:dev": "npm run dev --workspace=web",
+    "web:build": "npm run build --workspace=web",
+    "web:preview": "npm run preview --workspace=web",
+    "install:all": "npm install",
+    "clean": "rimraf node_modules backend/node_modules web/node_modules shared/node_modules backend/dist web/dist"
+  },
+  "keywords": [
+    "communication",
+    "employee-engagement",
+    "social-platform"
+  ],
+  "author": "",
+  "license": "UNLICENSED"
+}
