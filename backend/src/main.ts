@@ -14,8 +14,10 @@ async function bootstrap() {
 
   // CORS
   app.enableCors({
-    origin: configService.get('FRONTEND_URL'),
+    origin: ['http://localhost:5173', 'http://localhost:5174', configService.get('FRONTEND_URL')].filter(Boolean),
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   });
 
   // Global validation pipe

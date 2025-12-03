@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { authApi } from '../services/api';
 
-// For testing, we'll use a default org ID
+// For testing, we'll use the default org ID (matches the seed data)
 const DEFAULT_ORG_ID = '00000000-0000-0000-0000-000000000001';
 
 export default function Register() {
@@ -24,10 +24,13 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const response = await authApi.register({
+      const registerData = {
         ...formData,
         orgId: DEFAULT_ORG_ID, // Using default org for testing
-      });
+      };
+      console.log('Registration data:', registerData);
+      
+      const response = await authApi.register(registerData);
       
       // Store token and user data
       localStorage.setItem('accessToken', response.accessToken);
@@ -36,7 +39,18 @@ export default function Register() {
       // Redirect to dashboard
       navigate('/dashboard');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Registration failed. Please try again.');
+      console.error('Registration error:', err);
+      console.error('Error response:', err.response);
+      
+      if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else if (Array.isArray(err.response?.data?.message)) {
+        setError(err.response.data.message.join(', '));
+      } else if (err.response?.data?.error) {
+        setError(err.response.data.error);
+      } else {
+        setError('Registration failed. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

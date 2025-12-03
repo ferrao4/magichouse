@@ -1,6 +1,18 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { authApi, User } from '../services/api';
+import { authApi } from '../services/api';
+
+interface User {
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  orgId: string;
+  role: string;
+  status: string;
+  jobTitle?: string;
+  department?: string;
+}
 
 export default function Dashboard() {
   const navigate = useNavigate();
